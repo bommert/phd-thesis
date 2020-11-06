@@ -1,0 +1,110 @@
+---
+output: github_document
+---
+
+# Source Code for the PhD Thesis "Integration of Feature Selection Stability in Model Fitting" by Andrea Bommert
+
+## Comparison of Stability Measures
+- Folder "Comparison Small" contains the source code for the analyses in Section 6.2.
+	- cs_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster.
+	- cs_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the file "cs_results.RData".
+	- cs_evaluation.R: Creates the plots and tables for the analyses in Section 6.2. The file "cs_results.RData" must be located in your working directory.
+- Folder "Properties" contains the source code for some analyses in Appendix B.
+
+
+## Datasets
+Contains the source code for creating the data sets, resampling instances and similarity matrices.
+
+- datasets_choice.R: Illustrates the choice of data sets. Creates the file "data_ids.RData".
+- datasets.R: Source this file in order to create the file "datasets.RData". The file "data_ids.RData" must be located in your working directory.
+- task_generation.R: Source this file in order to create the following files:
+	- rins.RData
+	- simmats.RData
+  The file "datasets.RData" must be located in your working directory.
+- task_generation_halves.R: Source this file in order to create the following files:
+	- rins_halves.RData
+	- simmats_halves.RData
+  The file "datasets.RData" must be located in your working directory.
+- pca_plots.R: Creates the PCA plots of the data sets. The file "datasets.RData" must be located in your working directory.
+
+
+## Feature Section Similar Features
+Contains the source code for the analyses in Section 8.1.
+
+- fssf_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster. The following files must be located in your working directory:
+	- extractSelectedFeatures.R
+	- extractSelectedFeaturesInternal.R
+	- helper.R
+	- RLearner_classif_L0Learn.R
+- fssf_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the file "fssf_results.RData".
+- fssf_evaluation.R: Creates the plots for the analyses in Section 8.1. The file "fssf_results.RData" must be located in your working directory.
+
+
+## Filter Benchmark
+Contains the source code for the analyses in Chapter 5.
+
+- Folder "Benchmark" contains the source code for the analyses in Sections 5.2 and 5.3.
+	- pars_values.R: Source this file first in order to create the file "pars_values.RData". The file "paramset.R" must be located in your working directory.
+	- fb_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster. The following files must be located in your working directory: 
+		- make_lrn.R
+		- measure_time_filter.R
+		- microarray_filters.R
+		- resampling.R
+		- datasets.RData (see Datasets)
+		- pars_values.RData
+		- rins.RData (see Datasets)
+	- fb_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the files "results_filter.RData" and "results_ranking.RData".
+	- fb_tuning.R: Source this file in order to create the file "results_tuning.RData". The file "results_filter.RData" must be located in your working directory.
+	- fb_rank_cors.R: Source this file in order to create the file "mean_cor.RData". The file "results_ranking.RData" must be located in your working directory. Also, the plots for the analyses in Section 5.2 are generated.
+	- fb_evaluation.R: Creates the plots for the analyses in Section 5.3. The files "results_tuning.RData" and "mean_cor.RData" must be located in your working directory.
+- Folder "Stochasticity" contains the source code for the analyses in Section 5.4.
+	- fs_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster. The file "datasets.RData" (see Datasets) must be located in your working directory.
+	- fs_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the file "fs_results.RData".
+	- fs_evaluation.R: Creates the plots for the analyses in Section 5.4. The file "fs_results.RData" must be located in your working directory.
+- Folder "Time" contains the source code for the analyses in Section 5.1.
+	- ft_dataset.R: Source this file first in order to create the file "ft_dataset.RData". The file "datasets.RData" (see Datasets) must be located in your working directory.
+	- ft_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster. The following files must be located in your working directory:
+		- microarray_filters.R
+		- ft_dataset.RData
+	- ft_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the file "results_time.RData".
+	- ft_evaluation.R: Creates the plots for the analyses in Section 5.1. The file "results_time.RData" must be located in your working directory.
+
+
+## Model Finding Multi-Criteria
+Contains the source code for the analyses in Section 6.3 and Chapter 7.
+
+- mf_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster. The following files must be located in your working directory:
+	- extractSelectedFeatures.R
+	- extractSelectedFeaturesInternal.R
+	- resampling.R
+	- rins_halves.RData (see Datasets)
+	- simmats_halves.RData (see Datasets)
+- mf_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the file "mf_results.RData".
+- mf_tuning.R: Source this file in order to create the file "mf_results_tuned.RData". The file "mf_results.RData" must be located in your working directory.
+- mf_sc_evaluation.R: Creates the plots for the analyses in Section 6.3. The files "datasets.RData" (see Datasets) and "mf_results.RData" must be located in your working directory.
+- mf_evaluation.R: Creates the plots and tables for the analyses in Chapter 7. The file "mf_results_tuned.RData" must be located in your working directory.
+
+
+## Model Finding Similar Features
+Contains the source code for the analyses in Chapter 8.
+
+- Folder "Simulated Data" contains the source code for the analyses in Section 8.3.
+	- sd_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster. The following files must be located in your working directory:
+		- data_generation.R
+		- extractSelectedFeatures.R
+		- extractSelectedFeaturesInternal.R
+		- false_features.R
+		- RLearner_classif_L0Learn.R
+	- sd_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the files "sd_results.RData" and "sd_runtimes.RData".
+	- sd_tuning.R: Source this file in order to create the file "sd_results_tuned.RData". The files "tuning_funs.R" and "sd_results.RData" must be located in your working directory.
+	- sd_evaluation.R: Creates the plots for the analyses in Section 8.3. The files "sd_results_tuned.RData" and "sd_runtimes.RData" must be located in your working directory.	
+- Folder "Real Data" contains the source code for the analyses in Section 8.4.
+	- rd_experiments.R: Source this file on a high performance compute cluster. Then submit the jobs manually with specifications suitable for your compute cluster. The following files must be located in your working directory:
+		- extractSelectedFeatures.R
+		- extractSelectedFeaturesInternal.R
+		- RLearner_classif_L0Learn.R
+		- rins.RData (see Datasets)
+		- simmats.RData (see Datasets)
+	- rd_results.R: When all jobs have finished, source this file in the R session on your high performance compute cluster. It creates the file "rd_results.RData".
+	- rd_tuning.R: Source this file in order to create the file "rd_results_tuned.RData". The files "tuning_funs.R" and "rd_results.RData" must be located in your working directory.
+	- rd_evaluation.R: Creates the plots for the analyses in Section 8.4. The file "rd_results_tuned.RData" must be located in your working directory.
